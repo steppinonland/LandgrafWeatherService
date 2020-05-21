@@ -3,6 +3,7 @@ var APIKey = "72dc3f69fdfc73eedbb7f9276f7e28db";
 var queryURL = "https://www.api.openweathermap.org/data/2.5/forecast?q=" + city + APIKey;
 var cities = [];
 var city = $("#city-search").val();
+
 // this will be the function that takes in the searched city and displays that data
         function displayCityWeather() {
             $.ajax({
