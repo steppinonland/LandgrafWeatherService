@@ -20,13 +20,37 @@
         <input type="text" id="city-search"><br>
   
         <!-- This button will trigger our AJAX call -->
-        <input id="city" type="submit" value="Search">
+        <input id="add-city" type="submit" value="Search">
       </form>
+      <div id="my-cities-view">
+        <h5>My Cities:</h5>
+        <ul id="cities-view" class="list-group">
+          <!-- <li class="list-group-item active">New York</li>
+          <li class="list-group-item">Chicago</li>
+          <li class="list-group-item">Los Angeles</li>
+          <li class="list-group-item">Washington, D.C.</li>
+          <li class="list-group-item">San Francisco</li> -->
+        </ul>
+      </div>
+    <div class="city"></div>
+    <div class="wind"></div>
+    <div class="humidity"></div>
+    <div class="temp"></div>
+      <div id="show-weather" class="media">
+        <div class="media-body">
+          <h5 class="mt-0">Day 1</h5>
+            <ul>
+                <li>Temperature</li>
+                <li>Humidity</li>
+            </ul>
+        </div>
+      </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://kit.fontawesome.com/612f69a698.js" crossorigin="anonymous"></script>
   <script src="assets/main.js"></script>
   <script type="text/javascript">
-    
   </script>
 </body>
 

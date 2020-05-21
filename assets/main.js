@@ -1,33 +1,62 @@
 // This is our API key
-var APIKey = "72dc3f69fdfc73eedbb7f9276f7e28db";
+var APIKey = "appid=72dc3f69fdfc73eedbb7f9276f7e28db";
+// These are the default cities that show up in the list
+var cities = ["New York", "Chicago", "Los Angeles"];
+// this will be the function that takes in the searched city and displays that data
+        function displayCityWeather() {
+            
+            var city = $(this).attr("data-name");
+            var queryURL = "https://api.openweathermap.org/data/2.5/forecast?" + "q=" + city + APIKey;
+    
 
-// Here we are building the URL we need to query the database
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function(response) {
+                console.log(queryURL);
+                console.log(response);
+                
+                // $(".city").html("<h1>" + response.name + " Weather Details</h1>");
 
 
-      // This .on("click") function will trigger the AJAX Call
-      $("#find-city").on("click", function(event) {
+                // var windSpeed = response.wind.speed;
+                // var cityTemp = (response.main.temp -273.15) * 1.8 + 32;
+                // var UVindex = response.clouds.all;
+                // var humidity = response.main.humidity;
+            });
+        }
 
-        // event.preventDefault() can be used to prevent an event's default behavior.
-        // Here, it prevents the submit button from trying to submit a form when clicked
+        function renderCities () {
+            
+            $("#my-cities-view").empty();
+
+        // Looping through the array of cities
+            for (var i = 0; i < cities.length; i++) {
+
+          // Then dynamically generating a list for each movie in the array
+          // This code $("<li>") is all jQuery needs to create the beginning and end tag. (<li></li>)
+            var a = $("<li>");
+          // Adding a class to the list item
+            a.addClass("list-group-item");
+          // Adding a data-attribute
+            a.attr("data-name", cities[i]);
+          // Providing the initial list item text
+            a.text(cities[i]);
+          // Adding the list item to the list-group div
+            $("#my-cities-view").append(a);
+        }
+      }
+// This is the onclick function that will take in the searched city and then push it into the cities array
+// This should also display the weather for that city
+    $("#add-city").on("click", function(event) {
         event.preventDefault();
 
-        // Here we grab the text from the input box
-        var city = $("#city-input").val();
-        var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + city + APIKey;
-        // Here we construct our URL
+        var city = $("#city-input").val().trim();
 
-        // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
-        // and display it in the div with an id of movie-view
+        cities.push(city);
+        console.log(cities);
 
-        // ------YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY EDIT THE HTML ABOVE.
+        renderCities();
+    });
 
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-          $("#").text(JSON.stringify(response));
-        });
-
-        // -----------------------------------------------------------------------
-
-      });
+    $(document).on("click", ".city", displayCityWeather);
