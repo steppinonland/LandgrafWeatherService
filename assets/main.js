@@ -1,14 +1,10 @@
 // This is our API key
-var APIKey = "appid=72dc3f69fdfc73eedbb7f9276f7e28db";
-// These are the default cities that show up in the list
-var cities = ["New York", "Chicago", "Los Angeles"];
+var APIKey = "72dc3f69fdfc73eedbb7f9276f7e28db";
+var queryURL = "https://www.api.openweathermap.org/data/2.5/forecast?q=" + city + APIKey;
+var cities = [];
+var city = $("#city-search").val();
 // this will be the function that takes in the searched city and displays that data
         function displayCityWeather() {
-            
-            var city = $(this).attr("data-name");
-            var queryURL = "https://api.openweathermap.org/data/2.5/forecast?" + "q=" + city + APIKey;
-    
-
             $.ajax({
                 url: queryURL,
                 method: "GET"
@@ -20,7 +16,7 @@ var cities = ["New York", "Chicago", "Los Angeles"];
 
 
                 // var windSpeed = response.wind.speed;
-                // var cityTemp = (response.main.temp -273.15) * 1.8 + 32;
+                // var cityTemp = (response.main.temp - 273.15) * 1.8 + 32;
                 // var UVindex = response.clouds.all;
                 // var humidity = response.main.humidity;
             });
@@ -50,9 +46,6 @@ var cities = ["New York", "Chicago", "Los Angeles"];
 // This should also display the weather for that city
     $("#add-city").on("click", function(event) {
         event.preventDefault();
-
-        var city = $("#city-input").val().trim();
-
         cities.push(city);
         console.log(cities);
 
