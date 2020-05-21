@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/style.css">
   <title>The Landgraf Weather Service</title>
 </head>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <form id="city-form">
-        <label for="city-input">Search for a major city</label>
+        <label for="city-input">Search for a major city: </label>
         <input type="text" id="city-search"><br>
   
         <!-- This button will trigger our AJAX call -->
@@ -32,19 +32,74 @@
           <li class="list-group-item">San Francisco</li> -->
         </ul>
       </div>
-    <div class="city"></div>
-    <div class="wind"></div>
-    <div class="humidity"></div>
-    <div class="temp"></div>
-      <div id="show-weather" class="media">
+      <div class="media">
+        <img src="..." id="icon-today" class="align-self-center mr-3" alt="...">
         <div class="media-body">
-          <h5 class="mt-0">Day 1</h5>
-            <ul>
-                <li>Temperature</li>
-                <li>Humidity</li>
-            </ul>
+          <h5 id="dttxt-today" class="mt-0"></h5>
+          <ul>
+              <li id="temp-today"></li>
+              <li id="hum-today"></li>
+              <li id="UV-today"></li>
+              <li id="wind-today" ></li>
+          </ul>
         </div>
       </div>
+    <h2>5-Day forecast:</h2>
+      <div id="show-weather">
+        <ul class="list-unstyled">
+            <li class="media">
+              <img src="..." id="day0icon" class="mr-3" alt="...">
+              <div class="media-body">
+                <h5 id="dttxt0" class="mt-0 mb-1"></h5>
+                <ul>
+                    <li id="temp0"></li>
+                    <li id="hum0"></li>
+                </ul>
+              </div>
+            </li>
+            <li class="media">
+              <img src="..." id="day1icon" class="mr-3" alt="...">
+              <div class="media-body">
+                <h5 id="dttxt1" class="mt-0 mb-1"></h5>
+                <ul>
+                    <li id="temp1"></li>
+                    <li id="hum1"></li>
+                </ul>
+              </div>
+            </li>
+            <li class="media">
+                <img src="..." id="day2icon" class="mr-3" alt="...">
+                <div class="media-body">
+                  <h5 id="dttxt2" class="mt-0 mb-1"></h5>
+                  <ul>
+                      <li id="temp2"></li>
+                      <li id="hum2"></li>
+                  </ul>
+                </div>
+            </li>
+            <li class="media">
+                <img src="..." id="day3icon" class="mr-3" alt="...">
+                <div class="media-body">
+                  <h5 id="dttxt3" class="mt-0 mb-1"></h5>
+                  <ul>
+                      <li id="temp3"></li>
+                      <li id="hum3"></li>
+                  </ul>
+                </div>
+            </li>
+            <li class="media">
+                <img src="..." id="day4icon" class="mr-3" alt="...">
+                <div class="media-body">
+                  <h5 id="dttxt4" class="mt-0 mb-1"></h5>
+                  <ul>
+                      <li id="temp4"></li>
+                      <li id="hum4"></li>
+                  </ul>
+                </div>
+            </li>
+          </ul>
+        </div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
