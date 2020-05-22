@@ -13,8 +13,6 @@ function displayCityWeather() {
   }).then(function(response) {
     console.log(response);
     $("#city-weather").html(city);
-    var latVal = (JSON.stringify(response.coord.lat));
-    var lonVal = (JSON.stringify(response.coord.lon));
 
     // temperature:
     var tempToday = (Math.round(JSON.stringify(response.main.temp - 273.15) * 1.80 + 32));
@@ -30,39 +28,40 @@ function displayCityWeather() {
     var windToday = (Math.round(response.wind.speed));
     const displayTodayWind = $("<p>").text("Wind Speed: " + windToday + " MPH");
     $("#wind-today").html(displayTodayWind);
-
-    // UV index:
-  //   var UVqueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + "&apikey=72dc3f69fdfc73eedbb7f9276f7e28db" + "&lat=" + latVal + "&lon=" + lonVal;
-  //   $.ajax({
-  //     url: UVqueryURL,
-  //     method: "GET"
-  //   }).then(function(response) {
-  //     console.log(response);
-  //   var UVToday = Math.round(JSON.stringify(response.value));
-  //   console.log(UVToday);
-  //   const UVMedia = $("<div>").addClass("media");
-  //   const UVBody = $("<div>").addClass("media-body")
-  //   const UVHead = $("<h5>").addclass("mt-0").text("Current UV Index: ");
-  //   const displayTodayUV =$("<p>").text(UVToday);
-  //   UVBody.append(UVHead, displayTodayUV);
-  //   UVMedia.append(UVBody);
-  //   $("#UV-today").append(UVMedia);
-
-  //   // these will set the conditions to show the different UV indexes:
-  //   if (UVToday >= 11) {
-  //     UVMedia.addClass("UVExtreme");
-  //   } else if (UVToday < 11 || UVToday > 7) {
-  //     UVMedia.addClass("UVVHigh");
-  //   } else if (UVToday <= 7 || UVToday > 5) {
-  //     UVMedia.addClass("UVHigh");
-  //   } else if (UVToday <=5 || UVMedia > 2) {
-  //     UVMedia.addClass("UVModerate");
-  //   } else {
-  //     UVMedia.addClass("UVLow");
-  //   }
-  // });
+  // next 5 days forecast:
 });
 }
+function UVinfo() {
+  var latVal = (JSON.stringify(response.coord.lat));
+  var lonVal = (JSON.stringify(response.coord.lon));
+  var UVqueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + "&apikey=72dc3f69fdfc73eedbb7f9276f7e28db" + "&lat=" + latVal + "&lon=" + lonVal;
+$.ajax({
+  url: UVqueryURL,
+  method: "GET"
+}).then(function(response) {
+  console.log(response);
+  var UVToday = Math.round(JSON.stringify(response.value));
+  console.log(UVToday);
+  const UVHead = $("<h5>").attr("mt-0").text("Current UV Index: " + (UVToday));
+  UVHead.append(UVToday);
+  $(".mt-0").append(UVHead);
+
+//   // these will set the conditions to show the different UV indexes:
+//   if (UVToday >= 11) {
+//     UVMedia.addClass("UVExtreme");
+//   } else if (UVToday < 11 || UVToday > 7) {
+//     UVMedia.addClass("UVVHigh");
+//   } else if (UVToday <= 7 || UVToday > 5) {
+//     UVMedia.addClass("UVHigh");
+//   } else if (UVToday <=5 || UVMedia > 2) {
+//     UVMedia.addClass("UVModerate");
+//   } else {
+//     UVMedia.addClass("UVLow");
+//   }
+});
+}
+
+
 // Function for displaying movie data
 function renderButtons() {
 
@@ -105,7 +104,8 @@ $("#add-city").on("click", function(event) {
 // Function for displaying the movie info
 // Using $(document).on instead of $(".movie").on to add event listeners to dynamically generated elements
 $(document).on("click", ".city", displayCityWeather);
-
+//Display the UV index info:
+UVinfo();
 // Calling the renderButtons function to display the initial buttons
 renderButtons();
 // this will be the function that takes in the searched city and displays that data
