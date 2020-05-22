@@ -104,9 +104,56 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://kit.fontawesome.com/612f69a698.js" crossorigin="anonymous"></script>
-  <script src="assets/main.js"></script>
-  <script type="text/javascript">
-  </script>
+<script src="assets/main.js" type="text/javascript">
+    var cities = [];
+
+function displayCityWeather() {
+
+    var city = $(this).attr("data-name");
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&apikey=72dc3f69fdfc73eedbb7f9276f7e28db";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      $("#cities-view").text(JSON.stringify(response));
+    });
+  }
+// These are the default cities that show up in the list
+function renderCities () {
+
+    $("#my-cities-view").empty();
+// Looping through the array of cities
+    for (var i = 0; i < cities.length; i++) {
+  // Then dynamically generating a list for each movie in the array
+  // This code $("<li>") is all jQuery needs to create the beginning and end tag. (<li></li>)
+    var a = $("<li>");
+  // Adding a class to the list item
+    a.addClass("list-group-item");
+  // Adding a data-attribute
+    a.attr("data-name", cities[i]);
+  // Providing the initial list item text
+    a.text(cities[i]);
+  // Adding the list item to the list-group div
+    $("#my-cities-view").append(a);
+}
+}
+// this will be the function that takes in the searched city and displays that data
+$("#add-city").on("click", function(event) {
+    
+    event.preventDefault();
+    
+    var city = $("#city-search").val().trim();
+    
+    cities.push(city);
+    
+    console.log(cities);
+    
+    $(document).on("click", displayCityWeather);
+
+    renderCities();
+});
+</script>
 </body>
 
 </html>
