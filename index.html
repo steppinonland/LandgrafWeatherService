@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/style.css">
+  <title>The Landgraf Weather Service</title>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Landgraf Weather Service</h1>
+          <p class="lead">What's the weather in your city? Search Below:</p>
+        </div>
+    </div>
+    <div id="buttons-view"></div>
+
+    <form id="city-form">
+      <label for="city-input">Add a city, Yo!</label>
+      <input type="text" id="city-input"><br>
+
+      <!-- Button triggers new city to be added -->
+      <input id="add-city" type="submit" value="Add a city, Yo!">
+    </form>
+
+    <!-- Cities will Get Dumped Here -->
+    <div id="cities-view"></div>
+
+    <div id="city-weather">
+      <!-- <div id="wind"></div> -->
+      <!-- <div id="humidity"></div>
+      <div id="temp"></div>
+      <div id="tempF"></div> -->
+    </div>
+    <div id="date"></div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://kit.fontawesome.com/612f69a698.js" crossorigin="anonymous"></script>
+  <script src="assets/main.js" type="text/javascript"></script>
+</body>
+
+</html>
