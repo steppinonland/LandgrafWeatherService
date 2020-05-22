@@ -1,3 +1,13 @@
 .media {
     background-color: ghostwhite;
 }
+
+.UVhigh {
+    background-color: #ff6961;
+    color: white;
+  }
+
+.UVOK {
+    background-color: #77dd77;
+    color: white;
+}

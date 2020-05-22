@@ -13,6 +13,7 @@ function displayCityWeather() {
   }).then(function(response) {
     console.log(response);
     $("#city-weather").html(city);
+    
     // temperature:
     var tempToday = (Math.round(JSON.stringify(response.main.temp - 273.15) * 1.80 + 32));
     const displayTodayTemp = $("<p>").text("Temperature: " + tempToday + " °F");
@@ -23,6 +24,10 @@ function displayCityWeather() {
     const displayTodayHum = $("<p>").text("Humidity: " + humToday + "%");
     $("#hum-today").html(displayTodayHum);
 
+    // wind speed:
+    var windToday = (Math.round(response.wind.speed));
+    const displayTodayWind = $("<p>").text("Wind Speed: " + windToday + "MPH");
+    $("#wind-today").html(displayTodayWind);
   });
 }
 
