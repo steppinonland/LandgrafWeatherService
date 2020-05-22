@@ -32,35 +32,35 @@ function displayCityWeather() {
     $("#wind-today").html(displayTodayWind);
 
     // UV index:
-    var UVqueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + "&apikey=72dc3f69fdfc73eedbb7f9276f7e28db" + "&lat=" + latVal + "&lon=" + lonVal;
-    $.ajax({
-      url: UVqueryURL,
-      method: "GET"
-    }).then(function(response) {
-      console.log(response);
-    var UVToday = Math.round(JSON.stringify(response.value));
-    console.log(UVToday);
-    const UVMedia = $("<div>").addClass("media");
-    const UVBody = $("<div>").addClass("media-body")
-    const UVHead = $("<h5>").addclass("mt-0").text("Current UV Index: ");
-    const displayTodayUV =$("<p>").text(UVToday);
-    UVBody.append(UVHead, displayTodayUV);
-    UVMedia.append(UVBody);
-    $("#UV-today").append(UVMedia);
+  //   var UVqueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + "&apikey=72dc3f69fdfc73eedbb7f9276f7e28db" + "&lat=" + latVal + "&lon=" + lonVal;
+  //   $.ajax({
+  //     url: UVqueryURL,
+  //     method: "GET"
+  //   }).then(function(response) {
+  //     console.log(response);
+  //   var UVToday = Math.round(JSON.stringify(response.value));
+  //   console.log(UVToday);
+  //   const UVMedia = $("<div>").addClass("media");
+  //   const UVBody = $("<div>").addClass("media-body")
+  //   const UVHead = $("<h5>").addclass("mt-0").text("Current UV Index: ");
+  //   const displayTodayUV =$("<p>").text(UVToday);
+  //   UVBody.append(UVHead, displayTodayUV);
+  //   UVMedia.append(UVBody);
+  //   $("#UV-today").append(UVMedia);
 
-    // these will set the conditions to show the different UV indexes:
-    if (UVToday >= 11) {
-      UVMedia.addClass("UVExtreme");
-    } else if (UVToday < 11 || UVToday > 7) {
-      UVMedia.addClass("UVVHigh");
-    } else if (UVToday <= 7 || UVToday > 5) {
-      UVMedia.addClass("UVHigh");
-    } else if (UVToday <=5 || UVMedia > 2) {
-      UVMedia.addClass("UVModerate");
-    } else {
-      UVMedia.addClass("UVLow");
-    }
-  });
+  //   // these will set the conditions to show the different UV indexes:
+  //   if (UVToday >= 11) {
+  //     UVMedia.addClass("UVExtreme");
+  //   } else if (UVToday < 11 || UVToday > 7) {
+  //     UVMedia.addClass("UVVHigh");
+  //   } else if (UVToday <= 7 || UVToday > 5) {
+  //     UVMedia.addClass("UVHigh");
+  //   } else if (UVToday <=5 || UVMedia > 2) {
+  //     UVMedia.addClass("UVModerate");
+  //   } else {
+  //     UVMedia.addClass("UVLow");
+  //   }
+  // });
 });
 }
 // Function for displaying movie data
@@ -104,7 +104,7 @@ $("#add-city").on("click", function(event) {
 
 // Function for displaying the movie info
 // Using $(document).on instead of $(".movie").on to add event listeners to dynamically generated elements
-$(document).on("click", ".city", displayCityWeather, todayUVinfo);
+$(document).on("click", ".city", displayCityWeather);
 
 // Calling the renderButtons function to display the initial buttons
 renderButtons();
