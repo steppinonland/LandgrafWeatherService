@@ -12,10 +12,17 @@ function displayCityWeather() {
     method: "GET"
   }).then(function(response) {
     console.log(response);
-    $("#city-weather").html(JSON.stringify(response.name));
+    $("#city-weather").html(city);
+    // temperature:
     var tempToday = (Math.round(JSON.stringify(response.main.temp - 273.15) * 1.80 + 32));
     const displayTodayTemp = $("<p>").text("Temperature: " + tempToday + " °F");
     $("#temp-today").html(displayTodayTemp);
+
+    // humidity:
+    var humToday = (Math.round(JSON.stringify(response.main.humidity)));
+    const displayTodayHum = $("<p>").text("Humidity: " + humToday + "%");
+    $("#hum-today").html(displayTodayHum);
+
   });
 }
 
