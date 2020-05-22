@@ -1,3 +1,27 @@
 .media {
     background-color: ghostwhite;
 }
+
+.UVextreme {
+    background-color: #f243ac;
+    color: white;
+  }
+
+.UVVHigh {
+    background-color: #e85555;
+    color: white;
+}
+
+.UVHigh {
+    background-color: #ee601f;
+    color: white;
+}
+
+.UVModerate {
+    background-color: #dcc335;
+    color: white;
+}
+.UVLow {
+    background-color: #38ce4a;
+    color: white;
+}
