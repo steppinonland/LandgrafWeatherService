@@ -4,6 +4,7 @@ var cities = [];
 // Function for dumping the JSON content for each button into the div
 function displayCityWeather() {
   $("#date").html(moment().format("dddd, MMMM Do YYYY"));
+  $("#tomorrow").hide();
   var city = $(this).attr("data-name");
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&apikey=72dc3f69fdfc73eedbb7f9276f7e28db";
 
@@ -29,6 +30,36 @@ function displayCityWeather() {
     const displayTodayWind = $("<p>").text("Wind Speed: " + windToday + " MPH");
     $("#wind-today").html(displayTodayWind);
   // next 5 days forecast:
+  // "day0icon"
+    ("#forecast0").html(moment().format("dddd, MMMM Do YYYY"))++;
+    // tomorrow's temp:
+    var temp0 = (Math.round(JSON.stringify(response.list[1].main.temp - 273.15) * 1.80 + 32));
+    const displayTemp0 = $("<li>").text("Temperature: " + temp0 + " °F");
+    $("#tomorrow").html(displayTemp0);
+    // tomorrow's humidity:
+    var hum0 = (Math.round(JSON.stringify(response.list[1].main.humidity)));
+    const displayHum0 = $("<li>").text("Humidity: " + hum0 + "%");
+    $("#tomorrow").html(displayHum0);
+
+// "day1icon"
+"dttxt1"
+"temp1"
+"hum1"
+
+// "day2icon"
+"dttxt2"
+"temp2"
+"hum2"
+
+// "day3icon"
+"dttxt3"
+"temp3"
+"hum3"
+
+// "day4icon"
+"dttxt0"
+"temp4"
+"hum4"
 });
 }
 function UVinfo() {
