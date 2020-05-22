@@ -15,145 +15,32 @@
           <p class="lead">What's the weather in your city? Search Below:</p>
         </div>
     </div>
+    <div id="buttons-view"></div>
+
     <form id="city-form">
-        <label for="city-input">Search for a major city: </label>
-        <input type="text" id="city-search"><br>
-  
-        <!-- This button will trigger our AJAX call -->
-        <input id="add-city" type="submit" value="Search">
-      </form>
-      <div id="my-cities-view">
-        <h5>My Cities:</h5>
-        <ul id="cities-view" class="list-group">
-          <!-- <li class="list-group-item active">New York</li>
-          <li class="list-group-item">Chicago</li>
-          <li class="list-group-item">Los Angeles</li>
-          <li class="list-group-item">Washington, D.C.</li>
-          <li class="list-group-item">San Francisco</li> -->
-        </ul>
-      </div>
-      <div class="media">
-        <img src="..." id="icon-today" class="align-self-center mr-3" alt="...">
-        <div class="media-body">
-          <h5 id="dttxt-today" class="mt-0"></h5>
-          <ul>
-              <li id="temp-today"></li>
-              <li id="hum-today"></li>
-              <li id="UV-today"></li>
-              <li id="wind-today" ></li>
-          </ul>
-        </div>
-      </div>
-    <h2>5-Day forecast:</h2>
-      <div id="show-weather">
-        <ul class="list-unstyled">
-            <li class="media">
-              <img src="..." id="day0icon" class="mr-3" alt="...">
-              <div class="media-body">
-                <h5 id="dttxt0" class="mt-0 mb-1"></h5>
-                <ul>
-                    <li id="temp0"></li>
-                    <li id="hum0"></li>
-                </ul>
-              </div>
-            </li>
-            <li class="media">
-              <img src="..." id="day1icon" class="mr-3" alt="...">
-              <div class="media-body">
-                <h5 id="dttxt1" class="mt-0 mb-1"></h5>
-                <ul>
-                    <li id="temp1"></li>
-                    <li id="hum1"></li>
-                </ul>
-              </div>
-            </li>
-            <li class="media">
-                <img src="..." id="day2icon" class="mr-3" alt="...">
-                <div class="media-body">
-                  <h5 id="dttxt2" class="mt-0 mb-1"></h5>
-                  <ul>
-                      <li id="temp2"></li>
-                      <li id="hum2"></li>
-                  </ul>
-                </div>
-            </li>
-            <li class="media">
-                <img src="..." id="day3icon" class="mr-3" alt="...">
-                <div class="media-body">
-                  <h5 id="dttxt3" class="mt-0 mb-1"></h5>
-                  <ul>
-                      <li id="temp3"></li>
-                      <li id="hum3"></li>
-                  </ul>
-                </div>
-            </li>
-            <li class="media">
-                <img src="..." id="day4icon" class="mr-3" alt="...">
-                <div class="media-body">
-                  <h5 id="dttxt4" class="mt-0 mb-1"></h5>
-                  <ul>
-                      <li id="temp4"></li>
-                      <li id="hum4"></li>
-                  </ul>
-                </div>
-            </li>
-          </ul>
-        </div>
+      <label for="city-input">Add a city, Yo!</label>
+      <input type="text" id="city-input"><br>
+
+      <!-- Button triggers new city to be added -->
+      <input id="add-city" type="submit" value="Add a city, Yo!">
+    </form>
+
+    <!-- Cities will Get Dumped Here -->
+    <div id="cities-view"></div>
+
+    <div id="city-weather">
+      <!-- <div id="wind"></div> -->
+      <!-- <div id="humidity"></div>
+      <div id="temp"></div>
+      <div id="tempF"></div> -->
+    </div>
+    <div id="date"></div>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://kit.fontawesome.com/612f69a698.js" crossorigin="anonymous"></script>
-<script src="assets/main.js" type="text/javascript">
-    var cities = [];
-
-function displayCityWeather() {
-
-    var city = $(this).attr("data-name");
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&apikey=72dc3f69fdfc73eedbb7f9276f7e28db";
-
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-      $("#cities-view").text(JSON.stringify(response));
-    });
-  }
-// These are the default cities that show up in the list
-function renderCities () {
-
-    $("#my-cities-view").empty();
-// Looping through the array of cities
-    for (var i = 0; i < cities.length; i++) {
-  // Then dynamically generating a list for each movie in the array
-  // This code $("<li>") is all jQuery needs to create the beginning and end tag. (<li></li>)
-    var a = $("<li>");
-  // Adding a class to the list item
-    a.addClass("list-group-item");
-  // Adding a data-attribute
-    a.attr("data-name", cities[i]);
-  // Providing the initial list item text
-    a.text(cities[i]);
-  // Adding the list item to the list-group div
-    $("#my-cities-view").append(a);
-}
-}
-// this will be the function that takes in the searched city and displays that data
-$("#add-city").on("click", function(event) {
-    
-    event.preventDefault();
-    
-    var city = $("#city-search").val().trim();
-    
-    cities.push(city);
-    
-    console.log(cities);
-    
-    $(document).on("click", displayCityWeather);
-
-    renderCities();
-});
-</script>
+  <script src="assets/main.js" type="text/javascript"></script>
 </body>
 
 </html>
