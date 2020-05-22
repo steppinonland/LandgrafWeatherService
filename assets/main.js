@@ -13,6 +13,9 @@ function displayCityWeather() {
   }).then(function(response) {
     console.log(response);
     $("#city-weather").html(JSON.stringify(response.name));
+    var tempToday = (Math.round(JSON.stringify(response.main.temp - 273.15) * 1.80 + 32));
+    const displayTodayTemp = $("<p>").text("Temperature: " + tempToday + " °F");
+    $("#temp-today").html(displayTodayTemp);
   });
 }
 
