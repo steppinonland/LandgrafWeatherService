@@ -1,10 +1,10 @@
 // Initial array of cities
-var cities = [];
+var cities = JSON.parse(localStorage.getItem("cities")) || [ ];
 
 // Function for dumping the JSON content for each button into the div
 function renderWeather(city, response) {
   $("#city-weather").html(city);
-
+  $("#weatherIcon").attr("src", "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
     // temperature:
     var tempToday = Math.round(
       JSON.stringify(response.main.temp - 273.15) * 1.8 + 32
@@ -21,25 +21,23 @@ function renderWeather(city, response) {
     var windToday = Math.round(response.wind.speed);
     const displayTodayWind = $("<p>").text("Wind Speed: " + windToday + " MPH");
     $("#wind-today").html(displayTodayWind);
+
+    // UV index = 
 }
 function renderUVinfo(UVToday) {
-    console.log(UVToday);
+  console.log(UVToday);
     $("#UV-today").html($("<h5>").text("Current UV Index: " + UVToday));
-  //   UVHead.append(UVToday);
-  //   $(".mt-0").append(UVHead);
-
     //   // these will set the conditions to show the different UV indexes:
-    //   if (UVToday >= 11) {
-    //     UVMedia.addClass("UVExtreme");
-    //   } else if (UVToday < 11 || UVToday > 7) {
-    //     UVMedia.addClass("UVVHigh");
-    //   } else if (UVToday <= 7 || UVToday > 5) {
-    //     UVMedia.addClass("UVHigh");
-    //   } else if (UVToday <=5 || UVMedia > 2) {
-    //     UVMedia.addClass("UVModerate");
-    //   } else {
-    //     UVMedia.addClass("UVLow");
-    //   }
+      if (UVToday >= 11) {
+        $("#UV-today").removeClass()
+        $("#UV-today").addClass("UVExtreme");
+      } else if (UVToday < 11 && UVToday > 5) {
+        $("#UV-today").removeClass()
+        $("#UV-today").addClass("UVHigh");
+      } else {
+        $("#UV-today").removeClass()
+        $("#UV-today").addClass("UVLow");
+      }
 }
 
 function UVinfo(latVal, lonVal) {
@@ -76,7 +74,10 @@ function displayCityWeather() {
     var latVal = response.coord.lat;
     var lonVal = response.coord.lon;
     renderWeather(city, response);
+    renderForecast(city, response.shift);
     UVinfo(latVal, lonVal);
+
+function renderForecast(city, response.shift)
     // next 5 days forecast:
     // "day0icon"
     // "#forecast0".html(moment().format("dddd, MMMM Do YYYY"))++;
