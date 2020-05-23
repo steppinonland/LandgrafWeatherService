@@ -15,9 +15,9 @@
           <p class="lead">What's the weather in your city? Search Below:</p>
         </div>
     </div>
-    <div id="buttons-view"></div>
+    <div id="buttons-view" class="btn-group" role="group"></div>
 
-    <form id="city-form">
+    <form id="city-form" class="search">
       <label for="city-input">Enter in a city:</label>
       <input type="text" id="city-input"><br>
 
@@ -29,13 +29,20 @@
     <div id="cities-view"></div>
 
     <!-- this is the current city's weather conditions and date -->
-    <div id="city-weather"></div>
-    <div id="date"></div>
-    <img id="weatherIcon">
-    <div id="temp-today"></div>
-    <div id="hum-today"></div>
-    <div id="wind-today"></div>
-    <div id="UV-today"></div>
+    <div class="today">
+      <h2 id="city-weather"></h2>
+      <h4 id="date"></h4>
+      <img id="weatherIcon">
+      <div id="temp-today"></div>
+      <div id="hum-today"></div>
+      <div id="wind-today"></div>
+      <h4 id="UV-head"></h4>
+      <ul class="UV-keyE"></ul>
+      <ul class="UV-keyH"></ul>
+      <ul class="UV-keyL"></ul>
+      <div id="UV-today"></div>
+    </div>
+    
     <div id="forecast0">
       <ul id="tomorrow">
       </ul>

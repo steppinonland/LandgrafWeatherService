@@ -1,5 +1,5 @@
 // Initial array of cities
-var cities = JSON.parse(localStorage.getItem("cities")) || [ ];
+var cities = [];
 
 // Function for dumping the JSON content for each button into the div
 function renderWeather(city, response) {
@@ -26,6 +26,10 @@ function renderWeather(city, response) {
 }
 function renderUVinfo(UVToday) {
   console.log(UVToday);
+    $("#UV-head").html($("<h4>").text("UV Index:"));
+    $(".UV-keyE").html($("<li>").addClass("UVExtreme").text("Extreme: Greater than 11"));
+    $(".UV-keyH").html($("<li>").addClass("UVHigh").text("High: Between 5 and 10"));
+    $(".UV-keyL").html($("<li>").addClass("UVLow").text("Low: Less than 5"));
     $("#UV-today").html($("<h5>").text("Current UV Index: " + UVToday));
     //   // these will set the conditions to show the different UV indexes:
       if (UVToday >= 11) {
@@ -74,10 +78,7 @@ function displayCityWeather() {
     var latVal = response.coord.lat;
     var lonVal = response.coord.lon;
     renderWeather(city, response);
-    renderForecast(city, response.shift);
     UVinfo(latVal, lonVal);
-
-function renderForecast(city, response.shift)
     // next 5 days forecast:
     // "day0icon"
     // "#forecast0".html(moment().format("dddd, MMMM Do YYYY"))++;
@@ -127,6 +128,7 @@ function renderButtons() {
     var a = $("<button>");
     // Adding a class of movie to our button
     a.addClass("city");
+    a.addClass("btn btn-secondary");
     // Adding a data-attribute
     a.attr("data-name", cities[i]);
     // Providing the initial button text
