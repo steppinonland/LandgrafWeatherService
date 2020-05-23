@@ -22,6 +22,44 @@ function renderWeather(city, response) {
     const displayTodayWind = $("<p>").text("Wind Speed: " + windToday + " MPH");
     $("#wind-today").html(displayTodayWind);
 }
+function renderUVinfo(UVToday) {
+    console.log(UVToday);
+    $("#UV-today").html($("<h5>").text("Current UV Index: " + UVToday));
+  //   UVHead.append(UVToday);
+  //   $(".mt-0").append(UVHead);
+
+    //   // these will set the conditions to show the different UV indexes:
+    //   if (UVToday >= 11) {
+    //     UVMedia.addClass("UVExtreme");
+    //   } else if (UVToday < 11 || UVToday > 7) {
+    //     UVMedia.addClass("UVVHigh");
+    //   } else if (UVToday <= 7 || UVToday > 5) {
+    //     UVMedia.addClass("UVHigh");
+    //   } else if (UVToday <=5 || UVMedia > 2) {
+    //     UVMedia.addClass("UVModerate");
+    //   } else {
+    //     UVMedia.addClass("UVLow");
+    //   }
+}
+
+function UVinfo(latVal, lonVal) {
+  var UVqueryURL =
+    "http://api.openweathermap.org/data/2.5/uvi?" +
+    "&apikey=72dc3f69fdfc73eedbb7f9276f7e28db" +
+    "&lat=" +
+    latVal +
+    "&lon=" +
+    lonVal;
+    console.log(UVqueryURL);
+  $.ajax({
+    url: UVqueryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+    renderUVinfo(response.value)
+  });
+}
+
 function displayCityWeather() {
   $("#date").html(moment().format("dddd, MMMM Do YYYY"));
   $("#tomorrow").hide();
@@ -38,7 +76,7 @@ function displayCityWeather() {
     var latVal = response.coord.lat;
     var lonVal = response.coord.lon;
     renderWeather(city, response);
-    
+    UVinfo(latVal, lonVal);
     // next 5 days forecast:
     // "day0icon"
     // "#forecast0".html(moment().format("dddd, MMMM Do YYYY"))++;
@@ -72,42 +110,6 @@ function displayCityWeather() {
     // "dttxt0"
     // "temp4"
     // "hum4"
-  });
-}
-function UVinfo() {
-  
-  var UVqueryURL =
-    "http://api.openweathermap.org/data/2.5/uvi?" +
-    "&apikey=72dc3f69fdfc73eedbb7f9276f7e28db" +
-    "&lat=" +
-    latVal +
-    "&lon=" +
-    lonVal;
-  $.ajax({
-    url: UVqueryURL,
-    method: "GET",
-  }).then(function (response) {
-    console.log(response);
-    var UVToday = Math.round(JSON.stringify(response.value));
-    console.log(UVToday);
-    const UVHead = $("<h5>")
-      .attr("mt-0")
-      .text("Current UV Index: " + UVToday);
-    UVHead.append(UVToday);
-    $(".mt-0").append(UVHead);
-
-    //   // these will set the conditions to show the different UV indexes:
-    //   if (UVToday >= 11) {
-    //     UVMedia.addClass("UVExtreme");
-    //   } else if (UVToday < 11 || UVToday > 7) {
-    //     UVMedia.addClass("UVVHigh");
-    //   } else if (UVToday <= 7 || UVToday > 5) {
-    //     UVMedia.addClass("UVHigh");
-    //   } else if (UVToday <=5 || UVMedia > 2) {
-    //     UVMedia.addClass("UVModerate");
-    //   } else {
-    //     UVMedia.addClass("UVLow");
-    //   }
   });
 }
 
