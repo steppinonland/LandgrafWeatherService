@@ -1,3 +1,21 @@
+.jumbotron{
+    margin-bottom: 15px;
+    background-color: mediumaquamarine;
+}
+
+.display-4{
+    margin-left: 2%;
+}
+
+.lead{
+    margin-left: 2%;
+}
+
+.btn-group{
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
 .search {
     border-style: solid;
     border-width: 2em;
@@ -11,12 +29,19 @@ body {
 
 .today {
     margin: 3%;
-    border-style: solid;
-    border-width: 1em;
-    border-color: powderblue;
-    background-color: ghostwhite;
     padding: 3% 3%;
     max-width: fit-content;
+}
+.moveout{
+    margin-left: 3%;
+}
+.forecast{
+    margin: 3% 1%;
+    padding: 1%;
+}
+.media{
+    margin: 3%;
+    padding: 1%;
 }
 
 .UVHigh {
