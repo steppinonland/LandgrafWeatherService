@@ -15,40 +15,88 @@
           <p class="lead">What's the weather in your city? Search Below:</p>
         </div>
     </div>
-    <div id="buttons-view"></div>
+    <div id="buttons-view" class="btn-group" role="group"></div>
 
-    <form id="city-form">
-      <label for="city-input">Add a city, Yo!</label>
+    <form id="city-form" class="search">
+      <label for="city-input">Enter in a city:</label>
       <input type="text" id="city-input"><br>
 
       <!-- Button triggers new city to be added -->
-      <input id="add-city" type="submit" value="Add a city, Yo!">
+      <input id="add-city" type="submit" value="submit">
     </form>
 
     <!-- Cities will Get Dumped Here -->
     <div id="cities-view"></div>
 
     <!-- this is the current city's weather conditions and date -->
-    <div id="city-weather"></div>
-    <div id="date"></div>
-    <div id="temp-today"></div>
-    <div id="hum-today"></div>
-    <div id="wind-today"></div>
-    <div id ="UV-today" class="media">
-      <img class="mr-3">
-      <div class="media-body">
-        <h5 class="mt-0"></h5>
+  <div class="container">
+    <div class="row">
+      <div class="today col-md-6">
+        <h2 id="city-weather"></h2>
+        <h4 id="date"></h4>
+        <img id="weatherIcon">
+        <div id="temp-today"></div>
+        <div id="hum-today"></div>
+        <div id="wind-today"></div>
+        <h4 id="UV-head"></h4>
+        <ul class="UV-keyE"></ul>
+        <ul class="UV-keyH"></ul>
+        <ul class="UV-keyL"></ul>
+        <div id="UV-today"></div>
+      </div>
+      <div class="col-md-6">
+      <div class="forecast">
+        <h4 id="5dayForecast"></h4>
+        <ul class="list-unstyled">
+          <li class="media">
+          <img id="weathertomorrow" class="mr-3">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1" id="forecast1"></h5>
+              <ul id="temp1"></ul>
+              <ul id="hum1"></ul>
+            </div>
+          </li>
+          <!-- 2 days out -->
+          <li class="media">
+            <img id="weather2" class="mr-3">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1" id="forecast2"></h5>
+              <ul id="temp2"></ul>
+              <ul id="hum2"></ul>
+            </div>
+          </li>
+          <!-- 3 days out -->
+          <li class="media">
+            <img id="weather3" class="mr-3">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1" id="forecast3"></h5>
+              <ul id="temp3"></ul>
+              <ul id="hum3"></ul>
+            </div>
+          </li>
+          <!-- 4 days out -->
+          <li class="media">
+            <img id="weather4" class="mr-3">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1" id="forecast4"></h5>
+              <ul id="temp4"></ul>
+              <ul id="hum4"></ul>
+            </div>
+          </li>
+          <!-- 5 days out -->
+          <li class="media">
+            <img id="weather5" class="mr-3">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1" id="forecast5"></h5>
+              <ul id="temp5"></ul>
+              <ul id="hum5"></ul>
+            </div>
+          </li>
+        </ul>
+      </div>
       </div>
     </div>
-    <div id="forecast0">
-      <ul id="tomorrow">
-      </ul>
-    </div>
-    <div id="forecast1"></div>
-    <div id="forecast2"></div>
-    <div id="forecast3"></div>
-    <div id="forecast4"></div>
-
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://kit.fontawesome.com/612f69a698.js" crossorigin="anonymous"></script>

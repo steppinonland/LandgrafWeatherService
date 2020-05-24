@@ -1,27 +1,55 @@
-.media {
-    background-color: ghostwhite;
+.jumbotron{
+    margin-bottom: 15px;
+    background-color: mediumaquamarine;
 }
 
-.UVextreme {
-    background-color: #f243ac;
-    color: white;
-  }
+.display-4{
+    margin-left: 2%;
+}
 
-.UVVHigh {
-    background-color: #e85555;
-    color: white;
+.lead{
+    margin-left: 2%;
+}
+
+.btn-group{
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.search {
+    border-style: solid;
+    border-width: 2em;
+    border-color: powderblue;
+    padding: 1em;
+    background-color: ghostwhite;
+}
+body {
+    background: linear-gradient(90deg, rgba(240,255,168,0.7819502801120448) 5%, rgba(173,217,123,0.7903536414565826) 30%, rgba(28,133,24,0.7455357142857143) 65%, rgba(0,212,255,0.7287289915966386) 100%);
+}
+
+.today {
+    margin: 3%;
+    padding: 3% 3%;
+    max-width: fit-content;
+}
+.moveout{
+    margin-left: 3%;
+}
+.forecast{
+    margin: 3% 1%;
+    padding: 1%;
+}
+.media{
+    margin: 3%;
+    padding: 1%;
 }
 
 .UVHigh {
-    background-color: #ee601f;
-    color: white;
+    color: #ee601f;
 }
-
-.UVModerate {
-    background-color: #dcc335;
-    color: white;
+.UVExtreme {
+    color: #f243ac;
 }
 .UVLow {
-    background-color: #38ce4a;
-    color: white;
+    color: #38ce4a;
 }
