@@ -1,5 +1,5 @@
 // Initial array of cities
-var cities = [];
+var cities = JSON.parse(localStorage.getItem("cities")) || [];
 // Function for dumping the JSON content for each button into the div
 function renderWeather(city, response) {
   $("#city-weather").html(city);
@@ -182,6 +182,7 @@ $("#add-city").on("click", function (event) {
 
   // Adding the movie from the textbox to our array
   cities.push(city);
+  localStorage.setItem("cities", JSON.stringify(cities));
   // Calling renderButtons which handles the processing of our movie array
   renderButtons();
 });

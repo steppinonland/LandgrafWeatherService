@@ -12,21 +12,17 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Landgraf Weather Service</h1>
-          <p class="lead">What's the weather in your city? Search Below:</p>
+          <p class="lead">Type in a city then click on its button to display the weather!</p>
         </div>
     </div>
-    <div id="buttons-view" class="btn-group" role="group"></div>
-
     <form id="city-form" class="search">
       <label for="city-input">Enter in a city:</label>
       <input type="text" id="city-input"><br>
-
       <!-- Button triggers new city to be added -->
       <input id="add-city" type="submit" value="submit">
     </form>
-
-    <!-- Cities will Get Dumped Here -->
-    <div id="cities-view"></div>
+    <h6>My cities:</h6>
+    <div id="buttons-view" class="btn-group" role="group"></div>
 
     <!-- this is the current city's weather conditions and date -->
   <div class="container">

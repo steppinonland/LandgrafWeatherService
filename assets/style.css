@@ -1,6 +1,8 @@
 .btn-group{
-    padding-left: 5px;
-    padding-bottom: 5px;
+    margin-left: 1%;
+}
+.display-4, .lead {
+    margin-left: 1%;
 }
 
 .search {
@@ -11,7 +13,7 @@
     background-color: ghostwhite;
 }
 body {
-    background: linear-gradient(90deg, rgba(240,255,168,0.7819502801120448) 5%, rgba(173,217,123,0.7903536414565826) 30%, rgba(28,133,24,0.7455357142857143) 65%, rgba(0,212,255,0.7287289915966386) 100%);
+    background: linear-gradient(90deg, rgba(234,255,255,1) 0%, rgba(228,238,221,1) 50%, rgba(216,255,224,1) 100%);
 }
 
 .today {
@@ -39,4 +41,8 @@ body {
 }
 .UVLow {
     color: #38ce4a;
+}
+h6 {
+    padding-left: 1%;
+    padding-top: 1%;
 }
