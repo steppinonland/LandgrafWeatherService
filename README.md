@@ -1,9 +1,11 @@
 # LandgrafWeatherService
- Weather Dashboard
+ Welcome to my Weather Dashboard!
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+This is a straightforward website where the user can search any city to look up the weather. I had a lot of fun designing it and laying out everything. It's one of my very first JavaScript projects!
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
+This application is set up to retrieve data from the application's third-party OpenWeather API. This API allowed me to access the weather data. Each request with specific parameters to a URL dynamically updates HTML and CSS.
+
+Here is the [OpenWeather API](https://openweathermap.org/api) that I used to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
 
 ## User Story
 
